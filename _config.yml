@@ -21,7 +21,7 @@ timezone: Europe/Madrid
 
 title: BADTRY                         # the main title
 
-tagline: A cybersecurity student. CTF Player # it will display as the sub-title
+tagline: A cybersecurity student. CTF Player | ejptv2 # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   In this repo you will find write ups of HTB, THM, HMVM and others platforms. Also there will be some tools developed by myself.
