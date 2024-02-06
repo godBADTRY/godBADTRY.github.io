@@ -6,21 +6,27 @@ tags: [ctf]     # TAG names should always be lowercase
 ---
 
 
+
 OS: Linux
 
+
+
 Dificultad: Fácil/Easy
+
+
 
 - [English](#reconnaissance)
 - [Español](#reconocimiento)
 
+
 #### Reconnaissance
 
-![FirstPic](../assets/img/1.png)
-![FirstPic]({{ '../assets/img/1.png' | relative_url }}){: .center-image } 
+
+![FirstPic]({{ '/assets/img/1.png' | relative_url }}){: .center-image } 
 
 The web redirects you to a login page, after fuzzing we didnt found any interresting so lets try manually.
 
-![SecondPic]({{ '../assets/img//2.png' | relative_url }}){: .center-image } 
+![SecondPic]({{ '../assets/img/2.png' | relative_url }}){: .center-image } 
 
 The name of the CMS and the version are visible so lets find out if it is deprecated.
 
