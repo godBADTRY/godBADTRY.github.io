@@ -24,7 +24,7 @@ Dificultad: Fácil/Easy
 
 ![FirstPic]({{ '/assets/img/1.png' | relative_url }}){: .center-image } 
 
-The web redirects you to a login page, after fuzzing we didnt found any interresting so lets try manually.
+The web redirects you to a login page, after fuzzing we didnt found any interesting so lets try manually.
 
 ![SecondPic]({{ '../assets/img/2.png' | relative_url }}){: .center-image } 
 
