@@ -16,6 +16,7 @@ GEM
     ffi (1.17.0-arm64-darwin)
     ffi (1.17.0-x86_64-darwin)
     ffi (1.17.0-x86_64-linux)
+    ffi (1.17.0-x86_64-linux-gnu)
     forwardable-extended (2.6.0)
     google-protobuf (4.27.2)
       bigdecimal
@@ -138,6 +139,7 @@ PLATFORMS
   arm64-darwin
   ruby
   x86_64-darwin
+  x86_64-linux
   x86_64-linux-gnu
 
 DEPENDENCIES
