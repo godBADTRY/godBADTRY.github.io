@@ -13,7 +13,7 @@ tags: [windows,persistence]
 
 ### COM Hijacking
 
-A COM object (Component Object Model) is a technology of Microsoft that allows differents softwares written in different languages to work together. The references to these objects are in the Windows's registry.
+A COM object (Component Object Model) is a technology of Microsoft that allows different softwares written in different languages to work together. The references to these objects are in the Windows's registry.
 
 The COM Hijacking is a technique that allows that, when an application uses a COM object, this executes malicius code. This mostly works to get persistence or privilege escalation. 
 
@@ -24,7 +24,7 @@ To search for the processes that we want, we can filter them in **procmon** for:
 
 - RegOpenKey operations
 - where the Result is NAME NOT FOUND
-- and the Path ends with InprocServer32
+- the Path ends with InprocServer32
 - Exclude if path starts with HKLM
 
 ![SecPic]({{ 'assets/img/ComHijacking/Pasted image 20240824170113.png' | relative_url }}){: .center-image }
@@ -76,7 +76,7 @@ New-Item -Path "HKCU:Software\Classes\CLSID\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D
 New-ItemProperty -Path "HKCU:Software\Classes\CLSID\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}\InprocServer32" -Name "ThreadingModel" -Value "Both"
 `````
 
-Now when the DllHost.exe is executed and load this COM object it will execute our payload
+Now when the DllHost.exe is executed and load this COM object, it will execute our payload
 
 ![5Pic]({{ 'assets/img/ComHijacking/Pasted image 20240825145326.png' | relative_url}}){: .center-image }
 
@@ -92,20 +92,20 @@ Un objeto COM (Component Object Model) es una tecnología de Microsoft que permi
 
 El COM hijacking o secuestro del COM consiste en lograr que, a la hora de emplear un determinado objeto COM, este ejecute código malicioso. Esto mayoritariamente se emplea para lograr persistencia o escalar privilegios.
 
-Es posible secuestrar un objeto COM que esté en uso, lo que podría causar que algunas aplicaciones rompan o no funcionen bien. En este ejemplo para hacerlo de forma segura se buscarán por objetos COM inexistentes pero que estén tratando de ser cargados por alguna aplicación. Para ello se usará [Process Monitor](https://learn.microsoft.com/en-us/sysinternals/downloads/procmon) de Microsoft, que es una herramienta que muestra los archivos cargados en el sistema, procesos y registros.
+Es posible secuestrar un objeto COM que esté en uso, pero podría causar que algunas aplicaciones rompan o no funcionen bien. En este ejemplo para hacerlo de forma segura se buscarán por objetos COM inexistentes pero que estén tratando de ser cargados por alguna aplicación. Para ello se usará [Process Monitor](https://learn.microsoft.com/en-us/sysinternals/downloads/procmon) de Microsoft, que es una herramienta que muestra los archivos cargados en el sistema, procesos y registros.
 
 Lo más sencillo sería buscar por objetos COM en tu propia máquina y después modificar el registro en la máquina objetivo. Para buscar por los procesos que nos interesan, en **procmon** debemos filtrar por:
 
 - RegOpenKey operations
 - where the Result is NAME NOT FOUND
-- and the Path ends with InprocServer32
+- the Path ends with InprocServer32
 - Exclude if path starts with HKLM
 
 ![SecPic]({{ 'assets/img/ComHijacking/Pasted image 20240824170113.png' | relative_url }}){: .center-image }
 
-Una vez aplicados estos filtros, empezarán a salir más y más procesos, para agilizar la tarea podemos abrir programas como el explorador para que vayan apareciendo más procesos. 
+Una vez aplicados estos filtros, empezarán a salir más y más procesos, para agilizar la tarea podemos abrir programas como el explorador de archivos para que vayan apareciendo más procesos. 
 
-Al cabo de unos segundos tendremos cientos de procesos que podemos tratar de utilizar, pero un punto muy importante a seguir es el número de veces que se carga el CLSID, si usamos uno que se carga con mucha frecuencia, es posible que la máquina de problemas serios, por lo que es interesante buscar por alguno que se cargue con frecuencia pero no tanta.
+Al cabo de unos segundos tendremos cientos de procesos que podemos tratar de utilizar, pero un punto muy importante a tener en cuenta es el número de veces que se carga el CLSID, si usamos uno que se carga con mucha frecuencia, es posible que la máquina de serios problemas, por lo que es interesante buscar por alguno que se cargue con frecuencia pero no tanta.
 
 En mi caso encontré un CLSID cargado por *C:\\Windows\\System32\\DllHost.exe*
 
@@ -130,7 +130,7 @@ Get-Item -Path "HKCU:\Software\Classes\CLSID\{AB8902B4-09CA-4bb6-B78D-A8F59079A8
 
 ![4Pic]({{ 'assets/img/ComHijacking/Pasted image 20240824171449.png' | relative_url}}){: .center-image }
 
-Como se muestra en las imágenes, el CLSID existe en HKLM pero no en HKCU, que es donde tenemos permisos para modificarlo. Por lo tanto trataremos de crear una entrada en el registro HKCU para que apunte a nuestro payload y como DllHost está tratando de cargar este CLSID, ejecutará nuestro payload.
+Como se muestra en las imágenes, el CLSID existe en HKLM pero no en HKCU, que es donde tenemos permisos para modificarlo. Por lo que trataremos de crear una entrada en el registro HKCU para que apunte a nuestro payload y como DllHost está tratando de cargar este CLSID, ejecutará nuestro payload.
 
 En este ejemplo estoy usando un servidor de comando y control (Cobalt Strike) pero se puede hacer de la misma manera desde una consola de Powershell de la máquina víctima, lo único que cambia será el cómo transferir el payload a la máquina víctima.
 
