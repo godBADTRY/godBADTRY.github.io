@@ -136,7 +136,6 @@ PLATFORMS
   ruby
   x86_64-darwin
   x86_64-linux
-  x86_64-linux-gnu
 
 DEPENDENCIES
   ffi (< 1.17.0)
