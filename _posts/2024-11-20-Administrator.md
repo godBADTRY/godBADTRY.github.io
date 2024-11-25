@@ -34,7 +34,7 @@ nmap -p- --open -sS --min-rate 5000 -n -Pn -v 10.10.11.42 -oN IScan
 
 ![Pic]({{ '/assets/img/administrator/3pic.png' | relative_url }}){: .center-image }
 
-Now we want to know the versions running on these services. To avoid copying each port you can use the S4vitar script that I have modified, [extractPorts]() althoughy I will also leave the command below.
+Now we want to know the versions running on these services.
 
 ```sh
 nmap -sCV -p 21,53,88,135,139,389,445,464,593,636,3268,3269,5985,9389,47001,49664,49666,49667,49668,51591,58694,58705,58710,58713,58732 -oN SScan
@@ -224,7 +224,7 @@ nmap -p- --open -sS --min-rate 5000 -n -Pn -v 10.10.11.42 -oN IScan
 
 ![Pic]({{ '/assets/img/administrator/3pic.png' | relative_url }}){: .center-image }
 
-Ahora nos interesa saber la versión de cada uno de estos servicios. Para evitar copiar todos y cada uno de los puertos se puede usar el script de s4vitar que he modificado, [extractPorts]() aunque también os dejaré el comando a continuación.
+Ahora nos interesa saber la versión de cada uno de estos servicios.
 
 ```sh
 nmap -sCV -p 21,53,88,135,139,389,445,464,593,636,3268,3269,5985,9389,47001,49664,49666,49667,49668,51591,58694,58705,58710,58713,58732 -oN SScan
