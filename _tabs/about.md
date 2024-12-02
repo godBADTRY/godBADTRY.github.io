@@ -12,5 +12,5 @@ I have knowledge about computing because its what I studie.
 - - -
 ### You can find me here!
 - [Hack The Box](https://app.hackthebox.com/profile/945583)
-- Discord - BADTRY#8438
+- Discord - BADTRY
 - [Github](https://github.com/godBADTRY)
