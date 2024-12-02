@@ -220,7 +220,7 @@ Finally we can authenticate to the domain using the certificate generated.
 certipy auth -pfx administrator.pfx -domain certified.htb
 ```
 
-![Pic]({{ '/assets/img/certified/19pic.png' | relative_url }}){: .center-image }
+![Pic]({{ '/assets/img/certified/19.png' | relative_url }}){: .center-image }
 
 Now we can connect to the machine using **evil-winrm**.
 
