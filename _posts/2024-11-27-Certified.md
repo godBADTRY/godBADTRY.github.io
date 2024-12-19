@@ -1,5 +1,5 @@
 ---
-title: Certified Writeup
+title: Certified Write Up
 categories: [Write Ups, HackTheBox]
 tags: [ctf]
 ---
