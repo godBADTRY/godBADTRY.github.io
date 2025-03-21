@@ -54,9 +54,9 @@ jobs:
         with:
           path: "_site"
 
-          - name: Upload artifact
-          uses: actions/upload-artifact@v3
-          with:
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
 
 
   deploy:
