@@ -4,7 +4,7 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-Sup! Im **BADTRY** Im a pentest student and infosec enthusiastic who want reach the OSCP. To achieve this I play CTFs on platforms like Hack The Box, Try Hack Me, Hack My VM, etc... Also I enjoy developing my owns tools(scripting).
+Sup! Im **BADTRY** Im a pentest student and infosec enthusiastic who want reach the OSCE3. To achieve this I play CTFs on platforms like Hack The Box, Try Hack Me, Vulnlab, etc... Also I enjoy developing my owns tools(scripting).
 - - -
 My purpose of this blog is to post my owns tools and write ups to have a cheatsheet and helping people with his progress.
 - - -
