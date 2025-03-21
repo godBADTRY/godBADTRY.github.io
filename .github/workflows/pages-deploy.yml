@@ -54,10 +54,9 @@ jobs:
         with:
           path: "_site"
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: "_site"
+          - name: Upload artifact
+          uses: actions/upload-artifact@v3
+          with:
 
 
   deploy:
