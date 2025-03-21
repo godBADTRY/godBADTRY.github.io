@@ -49,6 +49,9 @@ jobs:
         run: |
           bundle exec htmlproofer _site --disable-external --check-html --allow_hash_href
 
+      - name: Ensure artifact action is available
+          run: echo "Using upload-pages-artifact instead of upload-artifact"
+
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v1
         with:
