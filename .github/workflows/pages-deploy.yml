@@ -48,16 +48,6 @@ jobs:
       - name: Test site
         run: |
           bundle exec htmlproofer _site --disable-external --check-html --allow_hash_href
-      - name: Ensure artifact action is available
-          run: echo "Using upload-pages-artifact instead of upload-artifact"
- Check failure on line 53 in .github/workflows/pages-deploy.yml
-
-
-GitHub Actions
-/ .github/workflows/pages-deploy.yml
-Invalid workflow file
-
-You have an error in your yaml syntax on line 53
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
