@@ -2,10 +2,12 @@
 title: COM Hijacking
 categories: [Deep Dives]
 tags: [windows,persistence]
+description: Understanding Component Object Model (COM) Hijacking
+image: assets/img/ComHijacking/ComHijacking.jpg
+pin: true
 ---
 
 
-![FirtsPic]({{ '/assets/img/ComHijacking/ComHijacking.jpg' | relative_url }}){: .center-image } 
 
 - [English](#com-hijacking)
 - [Español](#secuestro-del-com)
@@ -15,7 +17,7 @@ tags: [windows,persistence]
 
 A COM object (Component Object Model) is a technology of Microsoft that allows different softwares written in different languages to work together. The references to these objects are in the Windows's registry.
 
-The COM Hijacking is a technique that allows that, when an application uses a COM object, this executes malicius code. This mostly works to get persistence or privilege escalation. 
+The COM Hijacking is a technique that allows that, when an application uses a COM object, this executes malicius code. This mostly works to get persistence or privilege escalation.
 
 It is possible to hijack a COM object being used, but this may cause breaking applications. In this example I will be using a safer way which is to search for COM objects that doesn't exists but are trying to be loaded. To do that I will use [Process Monitor](https://learn.microsoft.com/en-us/sysinternals/downloads/procmon) of Microsoft, which is a tool that shows us files, processes and registries.
 
@@ -33,7 +35,7 @@ Once these filters has been applied, the procmon will display more and more proc
 
 After some seconds we will see hundreds of processes that we can try to use, but a important point is the number of times that the CLSID is loaded, if we choose one that is loaded often it's possible that the machine may have big problems, that's why is interesting to search for one that is loaded frequently but not as often.
 
-In my case I found a CLSID loaded by *C:\\Windows\System32\DllHost.exe* 
+In my case I found a CLSID loaded by *C:\\Windows\System32\DllHost.exe*
 
 ```
 HKCU\Software\Classes\CLSID\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}\InprocServer32
@@ -103,7 +105,7 @@ Lo más sencillo sería buscar por objetos COM en tu propia máquina y después 
 
 ![SecPic]({{ 'assets/img/ComHijacking/Pasted image 20240824170113.png' | relative_url }}){: .center-image }
 
-Una vez aplicados estos filtros, empezarán a salir más y más procesos, para agilizar la tarea podemos abrir programas como el explorador de archivos para que vayan apareciendo más procesos. 
+Una vez aplicados estos filtros, empezarán a salir más y más procesos, para agilizar la tarea podemos abrir programas como el explorador de archivos para que vayan apareciendo más procesos.
 
 Al cabo de unos segundos tendremos cientos de procesos que podemos tratar de utilizar, pero un punto muy importante a tener en cuenta es el número de veces que se carga el CLSID, si usamos uno que se carga con mucha frecuencia, es posible que la máquina de serios problemas, por lo que es interesante buscar por alguno que se cargue con frecuencia pero no tanta.
 
